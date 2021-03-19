@@ -1,7 +1,7 @@
+const $ = (selector) => document.querySelector(selector);
 const max = 100;
 let counter = 0;
 let moves = 0;
-const $ = (selector) => document.querySelector(selector);
 let timerId;
 let playState = false;
 
