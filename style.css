@@ -5,7 +5,7 @@
 body {
   margin: 0;
   padding: 0;
-  background-color: #000;
+  background-color: #111;
 }
 
 .container {
@@ -29,7 +29,7 @@ body {
 }
 
 .controls > .hex {
-  color: #aaa;
+  color: #999;
   font-family: inherit;
   font-size: inherit;
 }
@@ -39,28 +39,27 @@ ul.grid {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  min-height: calc(10vmax * 7);
-  min-width: calc(10vmax * 7);
-  max-height: calc(10vmax * 7);
-  max-width: calc(10vmax * 7);
+  height: calc(10vmax * 4);
+  width: calc(10vmax * 4);
 }
 
 ul.grid > li {
   display: flex;
   flex: 0 0 1rem;
-  border: 1px solid grey;
-  background-color: #333;
-  min-height: calc(7vmax);
-  min-width: calc(7vmax);
+  border: 1px solid #666;
+  min-height: calc(4vmax);
+  min-width: calc(4vmax);
+  max-height: calc(4vmax);
+  max-width: calc(4vmax);
   margin: 0;
   padding: 0;
   cursor: pointer;
 }
 
 ul.grid > li[data-active='false'] {
-  background-color: #aaa;
+  background-color: #444;
 }
 
 ul.grid > li[data-active='true'] {
-  background-color: #666;
+  background-color: #333;
 }
