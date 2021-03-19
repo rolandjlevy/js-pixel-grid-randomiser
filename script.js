@@ -65,7 +65,7 @@ function play() {
     $('.hex').textContent = `#${hex}`;
     $(`li[data-id='${next}']`).style.background = `#${hex}`;
     moves += 1;
-  }, 5);
+  }, 25);
 }
 
 function pause() {
