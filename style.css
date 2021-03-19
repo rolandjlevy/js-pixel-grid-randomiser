@@ -1,0 +1,66 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+.controls {
+  margin-top: 20px;
+  font-family: monospace;
+  font-size: 1.25rem;
+}
+
+.controls > button {
+  cursor: pointer;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.controls > .hex {
+  color: #aaa;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+ul.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  min-height: calc(10vmax * 7);
+  min-width: calc(10vmax * 7);
+  max-height: calc(10vmax * 7);
+  max-width: calc(10vmax * 7);
+}
+
+ul.grid > li {
+  display: flex;
+  flex: 0 0 1rem;
+  border: 1px solid grey;
+  background-color: #333;
+  min-height: calc(7vmax);
+  min-width: calc(7vmax);
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+}
+
+ul.grid > li[data-active='false'] {
+  background-color: #aaa;
+}
+
+ul.grid > li[data-active='true'] {
+  background-color: #666;
+}
