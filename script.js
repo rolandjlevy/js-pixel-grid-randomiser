@@ -64,8 +64,8 @@ function play() {
     const hex = moves.toString(16).padEnd(6,'0').toUpperCase();
     $('.hex').textContent = `#${hex}`;
     $(`li[data-id='${next}']`).style.background = `#${hex}`;
-    moves += 1;
-  }, 25);
+    moves += 5;
+  }, 5);
 }
 
 function pause() {
