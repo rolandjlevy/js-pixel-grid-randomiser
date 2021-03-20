@@ -1,79 +1,54 @@
+import Pixel from './src/Pixel.js';
+
 const $ = (selector) => document.querySelector(selector);
-const max = 100;
+
+const pixels = [];
+const gridSize = 10;
+const totalPixels = gridSize * gridSize;
 let counter = 0;
 let moves = 0;
+let currentId = Math.floor(Math.random() * Math.floor(totalPixels)) + 1;
+
+let speed = Number($('#slider').value);
+const maxSpeed = Number($('#slider').max);
 let timerId;
 let playState = false;
 
-function getRandomHex() {
-  const convertedMax = parseInt('ffffff', 16);
-  const randomNum = Math.floor(Math.random() * Math.floor(convertedMax));
-  return randomNum.toString(16).padEnd(6,'0').toUpperCase();
-}
-
-function setPixel() {
-  const rand = Math.floor(Math.random() * Math.floor(max)) + 1;
-  const pixel = $(`li[data-id='${rand}']`);
-  pixel.style.background = `#${getRandomHex()}`;
-}
-
-while (counter++ < max) {
-  const li = document.createElement('li');
-  li.setAttribute('data-active', 'false');
-  li.setAttribute('data-id', counter);
-  li.setAttribute('data-x', counter % 10 || 10);
-  li.setAttribute('data-y', Math.ceil(counter/10));
-  li.addEventListener('click', (e) => {
-    const { active, x, y, id } = e.target.dataset;
-    const state = active === 'false' ? 'true' : 'false';
-    // setPixel();
-    li.setAttribute('data-active', state);
+while (counter++ < totalPixels) {
+  const pixel = new Pixel({
+    id: counter,
+    x: counter % gridSize || gridSize,
+    y: Math.ceil(counter/gridSize)
   });
-  $('.grid').appendChild(li);
-}
-
-function nextPos(idNum, xPos, yPos) {
-  const id = Number(idNum);
-  const x = Number(xPos);
-  const y = Number(yPos);
-  const next = [
-    {id:id - 1, x:x - 1, y}, 
-    {id:id + 1, x:x + 1, y},
-    {id:id - 10, x, y:y - 1},
-    {id:id + 10, x, y:y + 1}
-  ];
-  const eligible = next.filter(({id, x, y}) => (x > 0 && x <= 10) && (y > 0 && y <= 10));
-  const randomPos = Math.floor(Math.random() * Math.floor(eligible.length));
-  currentNum = eligible[randomPos].id;
-  return currentNum;
-}
-
-let currentNum = Math.floor(Math.random() * Math.floor(max)) + 1;
-
-function getPixel(num) {
-  const x = $(`li[data-id='${num}']`).getAttribute('data-x');
-  const y = $(`li[data-id='${num}']`).getAttribute('data-y');
-  return {num, x, y};
-}
-
-function play() {
-  timerId = setInterval(() => {
-    // setPixel();
-    const px = getPixel(currentNum);
-    const next = nextPos(px.num, px.x, px.y);
-    const hex = moves.toString(16).padEnd(6,'0').toUpperCase();
-    $('.hex').textContent = `#${hex}`;
-    $(`li[data-id='${next}']`).style.background = `#${hex}`;
-    moves += 5;
-  }, 5);
-}
-
-function pause() {
-  clearInterval(timerId);
+  $('.grid').appendChild(pixel.li);
+  pixels.push(pixel);
 }
 
 $('button').addEventListener('click', (e) => {
   playState = !playState;
   playState ? play() : pause();
   e.target.textContent = playState ? 'PAUSE' : 'PLAY';
+});
+
+function play() {
+  if (!playState) return;
+  timerId = setInterval(() => {
+    const px = Pixel.getPixel(currentId, pixels);
+    currentId = Pixel.nextPos(px.id, px.x, px.y, gridSize);
+    const hex = moves.toString(16).padStart(6,'0').toUpperCase();
+    $('.hex').textContent = `#${hex}`;
+    $(`li[data-id='${currentId}']`).style.background = `#${hex}`;
+    $('.swatch').style.background = `#${hex}`;
+    moves += 10;
+  }, speed);
+}
+
+function pause() {
+  clearInterval(timerId);
+}
+
+$('#slider').addEventListener('input', (e) => {
+  speed = maxSpeed - Number(e.target.value);
+  pause();
+  play();
 });

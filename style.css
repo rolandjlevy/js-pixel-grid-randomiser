@@ -16,22 +16,41 @@ body {
   height: 100vh;
 }
 
+.swatch {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: grey;
+}
+
 .controls {
-  margin-top: 20px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 30px;
   font-family: monospace;
   font-size: 1.25rem;
 }
 
 .controls > button {
   cursor: pointer;
+  min-width: 80px;
+  border: none;
+  border-radius: 2px;
   font-family: inherit;
   font-size: inherit;
+  background-color: #ddd;
+  transition: background-color 0.2s ease;
+}
+
+.controls > button:hover {
+  background-color: #fff;
 }
 
 .controls > .hex {
   color: #999;
   font-family: inherit;
   font-size: inherit;
+  margin: 2px 6px 0 6px;
 }
 
 ul.grid {
@@ -46,7 +65,7 @@ ul.grid {
 ul.grid > li {
   display: flex;
   flex: 0 0 1rem;
-  border: 1px solid #666;
+  border: 1px solid #444;
   min-height: calc(4vmax);
   min-width: calc(4vmax);
   max-height: calc(4vmax);
@@ -62,4 +81,13 @@ ul.grid > li[data-active='false'] {
 
 ul.grid > li[data-active='true'] {
   background-color: #333;
+}
+
+.m-t-10 {
+  margin-top: 20px;
+}
+
+#slider {
+  display: flex;
+  align-items: center;
 }
