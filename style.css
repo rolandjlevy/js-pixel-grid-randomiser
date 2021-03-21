@@ -16,7 +16,7 @@ body {
   height: 100vh;
 }
 
-.swatch {
+span.swatch {
   display: inline-block;
   width: 20px;
   height: 20px;
@@ -31,7 +31,7 @@ body {
   font-size: 1.25rem;
 }
 
-.controls > button {
+.controls > button.toggle {
   cursor: pointer;
   min-width: 80px;
   border: none;
@@ -42,11 +42,11 @@ body {
   transition: background-color 0.2s ease;
 }
 
-.controls > button:hover {
+.controls > button.toggle:hover {
   background-color: #fff;
 }
 
-.controls > .hex {
+.controls > span.hex {
   color: #999;
   font-family: inherit;
   font-size: inherit;

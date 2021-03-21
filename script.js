@@ -24,7 +24,7 @@ while (counter++ < totalPixels) {
   pixels.push(pixel);
 }
 
-$('button').addEventListener('click', (e) => {
+$('button.toggle').addEventListener('click', (e) => {
   playState = !playState;
   playState ? play() : pause();
   e.target.textContent = playState ? 'PAUSE' : 'PLAY';
@@ -39,7 +39,7 @@ function play() {
     $('.hex').textContent = `#${hex}`;
     $(`li[data-id='${currentId}']`).style.background = `#${hex}`;
     $('.swatch').style.background = `#${hex}`;
-    moves += 10;
+    moves += 100;
   }, speed);
 }
 
