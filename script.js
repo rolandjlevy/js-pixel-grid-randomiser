@@ -33,10 +33,12 @@ function play() {
   if (!playState) return;
   timerId = setInterval(() => {
     const px = Pixel.getPixel(currentId, pixels);
-    currentId = Pixel.nextPos(px.id, px.x, px.y, gridSize);
+    currentId = Pixel.nextPos(px.id, px.found.x, px.found.y, gridSize);
     const hex = moves.toString(16).padStart(6,'0').toUpperCase();
+    px.found.setColour(hex);
     UI.$('.hex').textContent = `#${hex}`;
     UI.$(`li[data-id='${currentId}']`).style.background = `#${hex}`;
+    // UI.$(`li[data-id='${currentId}']`).classList.add('animate');
     UI.$('.swatch').style.background = `#${hex}`;
     moves += 100;
   }, speed);

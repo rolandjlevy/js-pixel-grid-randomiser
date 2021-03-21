@@ -3,15 +3,22 @@ export default class Pixel {
     this.id = id;
     this.x = x;
     this.y = y;
+    this.col = '';
     this.init();
   }
   init() {
     this.li = document.createElement('li');
     this.li.setAttribute('data-id', this.id);
+    this.li.addEventListener("animationend", (e) => {
+      this.li.classList.remove('animate');
+    });
+  }
+  setColour(hex) {
+    this.col = hex;
   }
   static getPixel(id, pixels) {
     const found = pixels.find(item => item.id == id);
-    return {id, x:found.x, y:found.y};
+    return {id, found};
   }
   static nextPos(id, x, y, size) {
     const next = [

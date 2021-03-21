@@ -16,13 +16,6 @@ body {
   height: 100vh;
 }
 
-span.swatch {
-  display: inline-block;
-  width: 20px;
-  height: 20px;
-  background: grey;
-}
-
 .controls {
   display: flex;
   justify-content: space-between;
@@ -53,6 +46,13 @@ span.swatch {
   margin: 2px 6px 0 6px;
 }
 
+span.swatch {
+  display: inline-block;
+  width: 20px;
+  height: 20px;
+  background: grey;
+}
+
 ul.grid {
   display: flex;
   flex-wrap: wrap;
@@ -73,6 +73,21 @@ ul.grid > li {
   margin: 0;
   padding: 0;
   cursor: pointer;
+}
+
+ul.grid > li.animate {
+  animation-name: fade;
+  animation-duration: 2s;
+  animation-iteration-count: 1;
+  animation-timing-function: ease;
+  animation-fill-mode: forwards;
+  animation-play-state: running;
+}
+
+@keyframes fade {
+  to {
+    background-color: #111;
+  }
 }
 
 ul.grid > li[data-active='false'] {
