@@ -7,7 +7,7 @@
 
 ### How it works 💡
 
-One pixel continuously changes colour and position in the 10x10 grid.
+A pixel continuously changes colour and position randomly in the grid.
 
 Each new position is chosen randomly: either one position up, down, left or right. This process repeats itself to create an organic animation.
 
