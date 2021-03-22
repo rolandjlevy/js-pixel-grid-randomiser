@@ -16,9 +16,6 @@ export default class Pixel {
       const rect = this.getPos();
       Tooltip.show(rect, this.col);
     });
-    this.li.addEventListener("animationend", (e) => {
-      this.li.classList.remove('animate');
-    });
   }
   setColour(hex) {
     this.col = hex;
