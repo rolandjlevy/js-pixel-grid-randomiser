@@ -3,20 +3,23 @@
   <head>
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width">
-    <title>repl.it</title>
-    <link href="style.css" rel="stylesheet" type="text/css" />
+    <title>Pixel randomiser</title>
+    <link href="./styles/style.css" rel="stylesheet" type="text/css" />
+    <link href="./styles/slider.css" rel="stylesheet" type="text/css" />
   </head>
   <body>
     <main class="container">
+      <h3>Pixel randomiser</h3>
       <ul class="grid"></ul>
-      <section class="controls">
+      <span class="tooltip">Hex</span>
+      <section class="controls m-t-30">
         <button class="toggle">PLAY</button>
+        <input type="color" id="colour-picker" value="#000000">
         <span class="hex">#000000</span>
         <span class="swatch"></span>
       </section>
-      <section class="speed m-t-10">
-        <input type="range" id="slider" name="slider" min="0" max="100" value="50">
-        <label for="slider">speed</label>
+      <section class="speed m-t-20">
+        <input type="range" id="slider" class="slider" name="slider" min="0" max="100" value="50">
       </section>
     </main>
     <script src="script.js" type="module"></script>

@@ -1,3 +1,6 @@
+import UI from './UI.js';
+import Tooltip from './Tooltip.js';
+
 export default class Pixel {
   constructor({id, x, y}) {
     this.id = id;
@@ -9,6 +12,10 @@ export default class Pixel {
   init() {
     this.li = document.createElement('li');
     this.li.setAttribute('data-id', this.id);
+    this.li.addEventListener("click", (e) => {
+      const rect = this.getPos();
+      Tooltip.show(rect, this.col);
+    });
     this.li.addEventListener("animationend", (e) => {
       this.li.classList.remove('animate');
     });
@@ -18,7 +25,7 @@ export default class Pixel {
   }
   static getPixel(id, pixels) {
     const found = pixels.find(item => item.id == id);
-    return {id, found};
+    return { id, found };
   }
   static nextPos(id, x, y, size) {
     const next = [
@@ -32,5 +39,9 @@ export default class Pixel {
     });
     const randomPos = Math.floor(Math.random() * Math.floor(eligible.length));
     return eligible[randomPos].id;
+  }
+  getPos() {
+    const { top, right, bottom, left } = this.li.getBoundingClientRect();
+    return { top, right, bottom, left };
   }
 }

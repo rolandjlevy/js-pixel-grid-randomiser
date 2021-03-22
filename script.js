@@ -2,12 +2,14 @@ import Pixel from './src/Pixel.js';
 import UI from './src/UI.js';
 
 const pixels = [];
-const gridSize = 10;
+const gridSize = 20;
 const totalPixels = gridSize * gridSize;
-let counter = 0;
-let moves = 0;
+
+const maxMoves = parseInt('ffffff', 16);
+let moves = parseInt('aa0000', 16);
 let currentId = Math.floor(Math.random() * Math.floor(totalPixels)) + 1;
 
+let counter = 0;
 let speed = Number(UI.$('#slider').value);
 const maxSpeed = Number(UI.$('#slider').max);
 let timerId;
@@ -23,6 +25,8 @@ while (counter++ < totalPixels) {
   pixels.push(pixel);
 }
 
+UI.$('.grid').style.animationPlayState = 'running';
+
 UI.$('button.toggle').addEventListener('click', (e) => {
   playState = !playState;
   playState ? play() : pause();
@@ -37,9 +41,9 @@ function play() {
     const hex = moves.toString(16).padStart(6,'0').toUpperCase();
     px.found.setColour(hex);
     UI.$('.hex').textContent = `#${hex}`;
-    UI.$(`li[data-id='${currentId}']`).style.background = `#${hex}`;
-    // UI.$(`li[data-id='${currentId}']`).classList.add('animate');
     UI.$('.swatch').style.background = `#${hex}`;
+    UI.$(`li[data-id='${currentId}']`).style.background = `#${hex}`;
+    moves = moves > maxMoves ? 0 : moves;
     moves += 100;
   }, speed);
 }
@@ -52,4 +56,20 @@ UI.$('#slider').addEventListener('input', (e) => {
   speed = maxSpeed - Number(e.target.value);
   pause();
   play();
+});
+
+UI.$('#colour-picker').addEventListener('input', (e) => {
+  const col = e.target.value;
+  const hex = col.slice(1, col.length).toUpperCase();
+  UI.$('.hex').textContent = `#${hex}`;
+  UI.$('.swatch').style.background = `#${hex}`;
+  moves = parseInt(hex, 16);
+});
+
+document.addEventListener('click', (e) => {
+  const clickedInside = UI.$('.grid').contains(e.target);
+  if (!clickedInside) {
+    UI.$('.tooltip').style.top = '-1000px';
+    UI.$('.tooltip').style.left = '-1000px';
+  }
 });

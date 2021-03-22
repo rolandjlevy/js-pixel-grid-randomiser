@@ -1,0 +1,173 @@
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  padding: 0;
+  background-color: #000;
+  color: #999;
+  font-family: monospace;
+  font-size: 1.25rem;
+  overflow: hidden;
+}
+
+.container {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  flex-direction: column;
+  height: 100vh;
+}
+
+@keyframes fadeIn {
+  to {
+    opacity: 1;
+  }
+}
+
+h3 {
+  text-transform: uppercase;
+  font-weight: normal;
+  letter-spacing: 1px;
+}
+
+/**********/
+/* Pixels */
+/**********/
+
+ul.grid {
+  display: flex;
+  flex-wrap: wrap;
+  margin: 0;
+  padding: 0;
+  height: calc(10vmax * 4);
+  width: calc(10vmax * 4);
+  opacity: 0;
+  animation: fadeIn 0.5s ease 1 forwards paused;
+}
+
+ul.grid > li {
+  display: flex;
+  flex: 0 0 1rem;
+  border: 1px solid #333;
+  background-color: #111;
+  min-height: calc(2vmax);
+  min-width: calc(2vmax);
+  max-height: calc(2vmax);
+  max-width: calc(2vmax);
+  margin: 0;
+  padding: 0;
+  cursor: pointer;
+  border-radius: 50%;
+}
+
+ul.grid > li.animate {
+  animation: fadeBg 1s ease 1 forwards running;
+}
+
+ul.grid > li[data-active='false'] {
+  background-color: #444;
+}
+
+ul.grid > li[data-active='true'] {
+  background-color: #333;
+}
+
+@keyframes fadeBg {
+  to {
+    background-color: #111;
+  }
+}
+
+/**********/
+/* layout */
+/**********/
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  font-family: inherit;
+  font-size: inherit;
+}
+
+.controls > *:not(:first-child) {
+  margin-left: 8px;
+}
+
+.controls > button.toggle {
+  cursor: pointer;
+  min-width: 75px;
+  height: 22px;
+  border: none;
+  border-radius: 2px;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: inherit;
+  background-color: #ddd;
+  transition: background-color 0.2s ease;
+}
+
+.controls > button.toggle:hover {
+  background-color: #fff;
+}
+
+.controls > span.hex {
+  font-family: inherit;
+  font-size: inherit;
+}
+
+span.swatch {
+  display: inline-block;
+  width: 24px;
+  height: 24px;
+  border: 1px solid #333;
+  border-radius: 50%;
+  background-color: #111;
+}
+
+#slider {
+  display: flex;
+  align-items: center;
+}
+
+#colour-picker {
+  cursor: pointer;
+}
+
+.tooltip {
+  position: absolute;
+  display: inline-block;
+  color: #333;
+  width: 87px;
+  height: 27px;
+  line-height: 1.7;
+  text-align: center;
+  background-color: #ddd;
+  border: 1px solid #111;
+  left: -1000px;
+  top: -1000px;
+  border-radius: 0.5vmax;
+  cursor: default;
+}
+
+/**********/
+/* layout */
+/**********/
+
+.m-t-30 {
+  margin-top: 30px;
+}
+
+.m-t-20 {
+  margin-top: 20px;
+}
+
+.m-t-10 {
+  margin-top: 10px;
+}
+
+.m-l-10 {
+  margin-left: 10px;
+}
