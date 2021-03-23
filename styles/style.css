@@ -80,9 +80,9 @@ ul.grid > li[data-active='true'] {
   }
 }
 
-/**********/
-/* layout */
-/**********/
+/************/
+/* controls */
+/************/
 
 .controls {
   display: flex;
@@ -105,12 +105,12 @@ ul.grid > li[data-active='true'] {
   font-family: inherit;
   font-weight: bold;
   font-size: inherit;
-  background-color: #ddd;
+  background: hsl(260, 42%, 91%);
   transition: background-color 0.2s ease;
 }
 
 .controls > button.toggle:hover {
-  background-color: #fff;
+  background: hsl(260, 42%, 100%);
 }
 
 .controls > span.hex {
@@ -133,16 +133,22 @@ span.swatch {
 }
 
 #colour-picker {
+  background: hsl(260, 42%, 91%);
+  transition: background-color 0.2s ease;
   cursor: pointer;
+}
+
+#colour-picker:hover {
+  background: hsl(260, 42%, 100%);
 }
 
 .tooltip {
   position: absolute;
   display: inline-block;
   color: #333;
-  width: 87px;
-  height: 27px;
-  line-height: 1.7;
+  width: 88px;
+  height: 30px;
+  line-height: 1.8;
   text-align: center;
   background-color: #ddd;
   border: 1px solid #111;

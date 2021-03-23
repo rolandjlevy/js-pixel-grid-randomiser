@@ -4,6 +4,8 @@ export default class Tooltip {
   constructor() {
   }
   static show(rect, col) {
+    const tooltip = UI.$('.tooltip');
+    tooltip && UI.$('.container').removeChild(tooltip);
     const span = document.createElement('span');
     span.classList.add('tooltip');
     UI.$('.container').appendChild(span);
