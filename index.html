@@ -13,13 +13,17 @@
       <ul class="grid"></ul>
       <span class="tooltip">Hex</span>
       <section class="controls m-t-30">
-        <button class="toggle">PLAY</button>
+        <button class="btn toggle">PLAY</button>
+        <input type="hidden" id="data">
         <input type="color" id="colour-picker" value="#000000">
         <span class="hex">#000000</span>
         <span class="swatch"></span>
       </section>
+      <section class="m-t-20">
+        <button class="btn shape" data-pattern="s">S</button><button class="btn shape" data-pattern="v">V</button><button class="btn shape" data-pattern="o">O</button><button class="btn shape" data-pattern="x">X</button><button class="btn shape" data-pattern="z">Z</button>
+      </section>
       <section class="speed m-t-20">
-        <input type="range" id="slider" class="slider" name="slider" min="0" max="100" value="50">
+        <input type="range" id="slider" class="slider" name="slider" min="0" max="50" value="25">
       </section>
     </main>
     <script src="script.js" type="module"></script>

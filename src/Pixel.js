@@ -2,19 +2,31 @@ import UI from './UI.js';
 import Tooltip from './Tooltip.js';
 
 export default class Pixel {
-  constructor({id, x, y}) {
+  constructor({id, x, y, pattern}) {
     this.id = id;
     this.x = x;
     this.y = y;
     this.col = '';
+    this.pattern = pattern;
     this.init();
   }
   init() {
     this.li = document.createElement('li');
     this.li.setAttribute('data-id', this.id);
     this.li.addEventListener("click", (e) => {
-      const rect = this.getPos();
-      Tooltip.show(rect, this.col);
+      // const rect = this.getPos();
+      // Tooltip.show(rect, this.col);
+      // TODO: toggle colour and item in array
+      const included = this.pattern.includes(this.id);
+      if (included) {
+        this.pattern = this.pattern.filter(id => this.id != id);
+        this.li.style.background = '#111';
+      } else {
+        this.pattern.push(this.id);
+        this.li.style.background = '#999';
+      }
+      console.log('pattern', this.pattern);
+      UI.$('#data').value = this.pattern.join(',')
     });
   }
   setColour(hex) {

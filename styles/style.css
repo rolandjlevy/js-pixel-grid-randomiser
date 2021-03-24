@@ -50,7 +50,7 @@ ul.grid {
 ul.grid > li {
   display: flex;
   flex: 0 0 1rem;
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   background-color: #111;
   min-height: calc(2vmax);
   min-width: calc(2vmax);
@@ -97,20 +97,10 @@ ul.grid > li[data-active='true'] {
 }
 
 .controls > button.toggle {
-  cursor: pointer;
   min-width: 75px;
-  height: 22px;
   border: none;
-  border-radius: 2px;
-  font-family: inherit;
-  font-weight: bold;
-  font-size: inherit;
-  background: hsl(260, 42%, 91%);
-  transition: background-color 0.2s ease;
-}
-
-.controls > button.toggle:hover {
-  background: hsl(260, 42%, 100%);
+  border-radius: 3px;
+  letter-spacing: 1px;
 }
 
 .controls > span.hex {
@@ -122,7 +112,7 @@ span.swatch {
   display: inline-block;
   width: 24px;
   height: 24px;
-  border: 1px solid #333;
+  /* border: 1px solid #333; */
   border-radius: 50%;
   background-color: #111;
 }
@@ -156,6 +146,37 @@ span.swatch {
   top: -1000px;
   border-radius: 0.5vmax;
   cursor: default;
+}
+
+/***********/
+/* buttons */
+/***********/
+
+.btn {
+  cursor: pointer;
+  height: 22px;
+  line-height: 1.2;
+  font-family: inherit;
+  font-weight: bold;
+  font-size: inherit;
+  background: hsl(260, 42%, 91%);
+  transition: background-color 0.2s ease;
+}
+
+.btn:hover {
+  background: hsl(260, 42%, 100%);
+}
+
+.btn.shape {
+  border: 2px solid  hsl(260, 20%, 30%);
+  border-radius: 5px;
+}
+.btn.shape:not(:first-child) {
+  margin: 0 0 0 4px;
+}
+
+.btn.shape.selected {
+  border: 2px solid #fff;
 }
 
 /**********/
