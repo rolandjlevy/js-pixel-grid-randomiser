@@ -1,6 +1,6 @@
-import Pixel from './src/Pixel.js';
-import Shapes from './src/Shapes.js';
 import UI from './src/UI.js';
+import Pixel from './src/Pixel.js';
+import { shapes } from  './src/Shapes.js';
 
 const pixels = [];
 const gridSize = 20;
@@ -60,14 +60,14 @@ function pause() {
   clearInterval(timerId);
 }
 
-// Set speed
+// Slider control for setting the speed
 UI.$('#slider').addEventListener('input', (e) => {
   speed = maxSpeed - Number(e.target.value);
   pause();
   play();
 });
 
-// Set current colour
+// Update the colour
 UI.$('#colour-picker').addEventListener('input', (e) => {
   const col = e.target.value;
   const hex = col.slice(1, col.length).toUpperCase();
@@ -76,19 +76,16 @@ UI.$('#colour-picker').addEventListener('input', (e) => {
   moves = parseInt(hex, 16);
 });
 
-// Remove tooltip
+// Remove tooltip from the container
 document.addEventListener('click', (e) => {
   const clickedInside = UI.$('.grid').contains(e.target);
   if (!clickedInside) {
     const tooltip = UI.$('.tooltip');
-    if (tooltip) {
-      UI.$('.container').removeChild(tooltip);
-    }
+    tooltip && UI.$('.container').removeChild(tooltip);
   }
 });
 
 // Preset shapes
-const shapes = new Shapes();
 let prevSelected;
 
 UI.$$('.shape').forEach(btn => {
@@ -102,4 +99,3 @@ UI.$$('.shape').forEach(btn => {
     pattern = shapes[selected];
   })
 });
-

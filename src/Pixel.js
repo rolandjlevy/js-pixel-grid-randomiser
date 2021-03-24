@@ -14,9 +14,6 @@ export default class Pixel {
     this.li = document.createElement('li');
     this.li.setAttribute('data-id', this.id);
     this.li.addEventListener("click", (e) => {
-      // const rect = this.getPos();
-      // Tooltip.show(rect, this.col);
-      // TODO: toggle colour and item in array
       const included = this.pattern.includes(this.id);
       if (included) {
         this.pattern = this.pattern.filter(id => this.id != id);
@@ -25,8 +22,9 @@ export default class Pixel {
         this.pattern.push(this.id);
         this.li.style.background = '#999';
       }
-      console.log('pattern', this.pattern);
-      UI.$('#data').value = this.pattern.join(',')
+      UI.$('#data').value = this.pattern.join(',');
+      // const rect = this.getPos();
+      // Tooltip.show(rect, this.col);
     });
   }
   setColour(hex) {
