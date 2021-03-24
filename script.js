@@ -27,7 +27,7 @@ while (counter++ < totalPixels) {
   });
   UI.$('.grid').appendChild(pixel.li);
   pixels.push(pixel);
-  // pattern.push(counter);
+  pattern.push(counter);
 }
 
 // fade in
@@ -46,14 +46,11 @@ function play() {
     const px = Pixel.getPixel(currentId, pixels);
     currentId = Pixel.nextPos(px.id, px.found.x, px.found.y, gridSize);
     const hex = moves.toString(16).padStart(6,'0').toUpperCase();
-    if (pattern.includes(currentId)) {
-      px.found.setColour(hex);
-      UI.$('.hex').textContent = `#${hex}`;
-      UI.$('.swatch').style.background = `#${hex}`;
-      UI.$(`li[data-id='${currentId}']`).style.background = `#${hex}`;
-    } else {
-      UI.$(`li[data-id='${currentId}']`).style.background = `#${hex}33`;
-    }
+    px.found.setColour(hex);
+    UI.$('.hex').textContent = `#${hex}`;
+    UI.$('.swatch').style.background = `#${hex}`;
+    const col = pattern.includes(currentId) ? `#${hex}` : `#${hex}33`;
+    UI.$(`li[data-id='${currentId}']`).style.background = col;
     moves = moves > maxMoves ? 0 : moves;
     moves += 100;
   }, speed);

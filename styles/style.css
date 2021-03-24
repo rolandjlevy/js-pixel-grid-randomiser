@@ -170,6 +170,7 @@ span.swatch {
 .btn.shape {
   border: 2px solid  hsl(260, 20%, 30%);
   border-radius: 5px;
+  font-size: 0.875rem;
 }
 .btn.shape:not(:first-child) {
   margin: 0 0 0 4px;
