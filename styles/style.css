@@ -41,8 +41,8 @@ ul.grid {
   flex-wrap: wrap;
   margin: 0;
   padding: 0;
-  height: calc(10vmax * 4);
-  width: calc(10vmax * 4);
+  height: calc(10vmax * 3);
+  width: calc(10vmax * 3);
   opacity: 0;
   animation: fadeIn 0.5s ease 1 forwards paused;
 }
@@ -50,12 +50,11 @@ ul.grid {
 ul.grid > li {
   display: flex;
   flex: 0 0 1rem;
-  /* border: 1px solid #333; */
   background-color: #111;
-  min-height: calc(2vmax);
-  min-width: calc(2vmax);
-  max-height: calc(2vmax);
-  max-width: calc(2vmax);
+  min-height: calc(1.5vmax);
+  min-width: calc(1.5vmax);
+  max-height: calc(1.5vmax);
+  max-width: calc(1.5vmax);
   margin: 0;
   padding: 0;
   cursor: pointer;
