@@ -14,18 +14,27 @@ export default class Pixel {
     this.li = document.createElement('li');
     this.li.setAttribute('data-id', this.id);
     this.li.addEventListener("click", (e) => {
-      const included = this.pattern.includes(this.id);
-      if (included) {
-        this.pattern = this.pattern.filter(id => this.id != id);
-        this.li.style.background = '#111';
-      } else {
-        this.pattern.push(this.id);
-        this.li.style.background = '#999';
-      }
-      UI.$('#data').value = this.pattern.join(',');
-      // const rect = this.getPos();
-      // Tooltip.show(rect, this.col);
+      // const included = this.pattern.includes(this.id);
+      // if (included) {
+      //   this.pattern = this.pattern.filter(id => this.id != id);
+      //   this.li.style.background = '#111';
+      // } else {
+      //   this.pattern.push(this.id);
+      //   this.li.style.background = '#999';
+      // }
+      // UI.$('#data').value = this.pattern.join(',');
+      const rect = this.getPos();
+      Tooltip.show(rect, this.col);
     });
+    // this.li.addEventListener("mouseenter", (e) => {
+    //   const rect = this.getPos();
+    //   Tooltip.show(rect, this.col);
+    //   console.log('mouseenter')
+    // });
+    // this.li.addEventListener("mouseleave", (e) => {
+    //   const tooltip = UI.$('.tooltip');
+    //   tooltip && UI.$('.container').removeChild(tooltip);
+    // });
   }
   setColour(hex) {
     this.col = hex;

@@ -48,13 +48,14 @@ ul.grid {
 }
 
 ul.grid > li {
+  --max: 1.5vmax;
   display: flex;
   flex: 0 0 1rem;
   background-color: #111;
-  min-height: calc(1.5vmax);
-  min-width: calc(1.5vmax);
-  max-height: calc(1.5vmax);
-  max-width: calc(1.5vmax);
+  min-height: var(--max);
+  min-width: var(--max);
+  max-height: var(--max);
+  max-width: var(--max);
   margin: 0;
   padding: 0;
   cursor: pointer;

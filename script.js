@@ -1,5 +1,6 @@
 import UI from './src/UI.js';
 import Pixel from './src/Pixel.js';
+import Tooltip from './src/Tooltip.js';
 import { shapes } from  './src/Shapes.js';
 
 const pixels = [];
@@ -80,8 +81,7 @@ UI.$('#colour-picker').addEventListener('input', (e) => {
 document.addEventListener('click', (e) => {
   const clickedInside = UI.$('.grid').contains(e.target);
   if (!clickedInside) {
-    const tooltip = UI.$('.tooltip');
-    tooltip && UI.$('.container').removeChild(tooltip);
+    Tooltip.remove();
   }
 });
 
