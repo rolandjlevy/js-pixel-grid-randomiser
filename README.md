@@ -5,6 +5,13 @@
 - [View the source code](https://replit.com/@RolandJLevy/js-pixel-randomiser)
 - [Explore the Github repo](https://github.com/rolandjlevy/js-pixel-randomiser)
 
+### Instructions ⚙️
+
+- Press Play and Pause to toggle the animation
+- Click on the letters to see letter shapes appear
+- Move the slider to change the speed speed
+- Click on each pixel to see its hexadecimal value
+
 ### How it works 💡
 
 A pixel continuously changes colour and position randomly in the grid.
