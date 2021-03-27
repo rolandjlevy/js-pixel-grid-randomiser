@@ -38,9 +38,11 @@ UI.$('.grid').style.animationPlayState = 'running';
 UI.$('button.toggle').addEventListener('click', (e) => {
   playState = !playState;
   playState ? play() : pause();
-  const buttonLabel = playState ? 'pause' : 'play';
-  e.target.innerHTML = '';
-  e.target.innerHTML = `<span>${buttonLabel}<i class="fas fa-${buttonLabel}"></i><span>`;
+  const btn = UI.$('button.btn.toggle > span.label');
+  const icon = UI.$('button.btn.toggle > i.fas');
+  btn.innerText = playState ? 'pause' : 'play';
+  icon.classList.toggle('fa-play');
+  icon.classList.toggle('fa-pause');
 });
 
 function play() {
