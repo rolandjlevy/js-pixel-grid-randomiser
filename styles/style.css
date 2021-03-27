@@ -97,10 +97,18 @@ ul.grid > li[data-active='true'] {
 }
 
 .controls > button.toggle {
-  min-width: 75px;
+  min-width: 82px;
   border: none;
   border-radius: 3px;
   letter-spacing: 1px;
+  line-height: 1.25;
+  font-size: 1rem;
+  text-transform: uppercase;
+}
+
+.controls > button.toggle i {
+  font-size: 0.75rem;
+  margin-left: 3px;
 }
 
 .controls > span.hex {
@@ -113,7 +121,6 @@ span.swatch {
   display: inline-block;
   width: 24px;
   height: 24px;
-  /* border: 1px solid #333; */
   border-radius: 50%;
   background-color: #111;
 }
