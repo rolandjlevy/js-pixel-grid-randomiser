@@ -106,6 +106,7 @@ ul.grid > li[data-active='true'] {
 .controls > span.hex {
   font-family: inherit;
   font-size: inherit;
+  width: 90px;
 }
 
 span.swatch {
@@ -136,7 +137,7 @@ span.swatch {
   position: absolute;
   display: inline-block;
   color: #333;
-  width: 88px;
+  width: auto;
   height: 30px;
   line-height: 1.8;
   text-align: center;
@@ -146,6 +147,7 @@ span.swatch {
   top: -1000px;
   border-radius: 0.5vmax;
   cursor: default;
+  padding: 0 5px;
 }
 
 /***********/

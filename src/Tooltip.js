@@ -11,7 +11,7 @@ export default class Tooltip {
     UI.$('.container').appendChild(span);
     UI.$('.tooltip').style.top = rect.top + 'px';
     UI.$('.tooltip').style.left = rect.left + 'px';
-    UI.$('.tooltip').innerText = '#' + col;
+    UI.$('.tooltip').innerText = col;
   }
   static remove() {
     const tooltip = UI.$('.tooltip');

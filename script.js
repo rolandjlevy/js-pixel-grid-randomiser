@@ -47,10 +47,10 @@ function play() {
     const px = Pixel.getPixel(currentId, pixels);
     currentId = Pixel.nextPos(px.id, px.found.x, px.found.y, gridSize);
     const hex = moves.toString(16).padStart(6,'0').toUpperCase();
-    px.found.setColour(hex);
-    UI.$('.hex').textContent = `#${hex}`;
-    UI.$('.swatch').style.background = `#${hex}`;
     const col = pattern.includes(currentId) ? `#${hex}` : `#${hex}33`;
+    px.found.setColour(col);
+    UI.$('.hex').textContent = col;
+    UI.$('.swatch').style.background = col;
     UI.$(`li[data-id='${currentId}']`).style.background = col;
     moves = moves > maxMoves ? 0 : moves;
     moves += 100;
