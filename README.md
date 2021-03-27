@@ -1,4 +1,4 @@
-# Pixel grid randomiser
+# Pixel randomiser
 
 ### Links 🔗
 - [Play the demo](https://js-pixel-randomiser.rolandjlevy.repl.co/)
