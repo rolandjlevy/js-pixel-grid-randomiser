@@ -14,7 +14,7 @@ let counter = 0;
 let speed = Number(UI.$('#slider').value);
 const maxSpeed = Number(UI.$('#slider').max);
 let timerId;
-let playState = false;
+let playState = true;
 
 let pattern = [];
 
@@ -56,6 +56,7 @@ function play() {
     moves += 100;
   }, speed);
 }
+play();
 
 function pause() {
   clearInterval(timerId);
