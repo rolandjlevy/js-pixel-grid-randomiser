@@ -5,6 +5,8 @@
 - [View the source code](https://replit.com/@RolandJLevy/js-pixel-randomiser)
 - [Explore the Github repo](https://github.com/rolandjlevy/js-pixel-randomiser)
 
+![demo image](https://raw.githubusercontent.com/rolandjlevy/js-pixel-randomiser/master/images/pixel-randomiser.jpg)
+
 ### Instructions ⚙️
 
 - Press Play and Pause to toggle the animation
@@ -22,4 +24,4 @@ The colour starts with hexadecimal value of #000000 (black) and with each move t
 
 The finishing hexadecimal colour is #ffffff (white) which means there are a total of 16,777,215 possible colours!
 
-This explains how to [convert #ffffff to a decimal value](https://www.colorhexa.com/ffffff) 
+This explains how to [convert #ffffff to a decimal value](https://www.colorhexa.com/ffffff)
