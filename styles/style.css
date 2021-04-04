@@ -59,7 +59,7 @@ ul.grid > li {
   margin: 0;
   padding: 0;
   cursor: pointer;
-  border-radius: 50%;
+  border-radius: 25%;
 }
 
 ul.grid > li.animate {
