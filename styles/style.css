@@ -168,7 +168,7 @@ span.swatch {
   font-family: inherit;
   font-weight: bold;
   font-size: inherit;
-  background: hsl(260, 42%, 91%);
+  background: hsl(260, 42%, 85%);
   transition: background-color 0.2s ease;
 }
 
@@ -181,12 +181,14 @@ span.swatch {
   border-radius: 5px;
   font-size: 0.875rem;
 }
+
 .btn.shape:not(:first-child) {
   margin: 0 0 0 4px;
 }
 
 .btn.shape.selected {
   border: 2px solid #fff;
+  background: hsl(260, 42%, 100%);
 }
 
 /**********/

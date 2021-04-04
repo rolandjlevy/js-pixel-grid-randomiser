@@ -11,12 +11,13 @@ const maxMoves = parseInt('ffffff', 16);
 let moves = parseInt('aa0000', 16);
 let currentId = Math.floor(Math.random() * Math.floor(totalPixels)) + 1;
 let counter = 0;
-let speed = Number(UI.$('#slider').value);
+let speed = 0; // Number(UI.$('#slider').value);
 const maxSpeed = Number(UI.$('#slider').max);
 let timerId;
 let playState = true;
 
-let pattern = [];
+const firstPattern = 'o';
+let pattern = shapes[firstPattern];
 
 // create the pixel grid
 while (counter++ < totalPixels) {
@@ -28,7 +29,7 @@ while (counter++ < totalPixels) {
   });
   UI.$('.grid').appendChild(pixel.li);
   pixels.push(pixel);
-  pattern.push(counter);
+  // pattern.push(counter);
 }
 
 // fade in
@@ -46,12 +47,13 @@ UI.$('button.toggle').addEventListener('click', (e) => {
 });
 
 function play() {
+  console.log({speed})
   if (!playState) return;
   timerId = setInterval(() => {
     const px = Pixel.getPixel(currentId, pixels);
     currentId = Pixel.nextPos(px.id, px.found.x, px.found.y, gridSize);
     const hex = moves.toString(16).padStart(6,'0').toUpperCase();
-    const col = pattern.includes(currentId) ? `#${hex}` : `#${hex}33`;
+    const col = pattern.includes(currentId) ? `#${hex}ff` : `#${hex}44`;
     px.found.setColour(col);
     UI.$('.hex').textContent = col;
     UI.$('.swatch').style.background = col;
@@ -91,7 +93,8 @@ document.addEventListener('click', (e) => {
 });
 
 // Preset shapes
-let prevSelected;
+let prevSelected = UI.$(`.btn[data-pattern="${firstPattern}"]`)
+prevSelected.classList.add('selected');
 
 UI.$$('.shape').forEach(btn => {
   btn.addEventListener('click', (e) => {
